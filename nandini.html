@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Security Awareness</title>
+  <link rel="stylesheet" href="nandin.css"/>
+  <script src="neetu.js"></script> 
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Orbitron', sans-serif; 
+    background: linear-gradient(to right, #000428, #004e92);
+     color: #cce7ff; padding: 20px; }
+
+    h1, h2, h3, h4, h5 { text-align: center;
+         margin-bottom: 20px;
+          text-shadow: 2px 2px 8px #00bfff; }
+
+    h1 { font-size: 60px; 
+        color: #00bfff; }
+
+    h2 { font-size: 40px;
+         color: #66ccff; }
+
+    h3 { background: #001f3f;
+         padding: 10px;
+          border-radius: 10px; 
+          font-size: 30px; 
+          color: #00bfff; }
+
+    p { text-align: center;
+         font-size: 24px; 
+         color: #a9cfe7;
+          margin-bottom: 20px; }
+
+    footer { text-align: center;
+         margin-top: 40px;
+          font-size: 20px;
+           color: #cccccc; }
+
+    .btn { display: inline-block;
+         margin: 10px;
+          padding: 15px 30px;
+           background-color: #004e92;
+            color: white;
+             text-decoration: none;
+              font-size: 20px;
+               border: 2px solid #00bfff; 
+               border-radius: 30px;
+                transition: 0.4s; }
+
+    .btn:hover { background: #00bfff;
+         color: #000428;
+          box-shadow: 0 0 15px #00bfff; }
+    .container { display: flex; 
+        flex-direction: column;
+         align-items: center; }
+
+    iframe { border-radius: 20px;
+         margin: 20px 0;
+          box-shadow: 0 0 20px #00bfff; }
+
+    .icon-bar { width: 100%;
+         background-color: #001f3f;
+          overflow: auto;
+           display: flex;
+            justify-content: center;
+             margin-bottom: 20px;
+              border-radius: 10px; }
+
+    .icon-bar a { padding: 14px;
+         color: white;
+          text-align: center;
+           transition: 0.3s;
+            font-size: 24px;
+             text-decoration: none;
+              flex: 1; }
+
+    .icon-bar a:hover { background-color: #00bfff;
+         color: #001f3f; }
+
+    .active { background-color: #00bfff;
+         color: #001f3f; }
+
+    .tips { background-color: #001f3f;
+         padding: 30px;
+          margin-top: 30px;
+           border-radius: 20px; 
+           box-shadow: 0 0 20px #00bfff; }
+
+    .tips ul { list-style-type: square;
+         font-size: 22px; 
+         margin-top: 20px;
+          color: #cce7ff; }
+
+    .tips ul li { margin: 10px 0; }
+
+    .helpline { margin-top: 40px;
+         background: #001f3f;
+          padding: 30px;
+           border-radius: 20px;
+            text-align: center;
+             box-shadow: 0 0 20px #00bfff; }
+
+    .helpline p { font-size: 28px;
+         color: #00ffea;
+          font-weight: bold;
+           margin-top: 15px; }
+
+    .helpline a { color: #00ffea;
+         font-size: 24px;
+          text-decoration: underline; }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="icon-bar">
+    <a class="active" href="#">Home</a> 
+    <a href="#video">Video</a> 
+    <a href="#quiz">Quiz</a> 
+    <a href="#puzzle">Puzzle</a>
+    <a href="#simulation">Simulation</a>
+    <a href="#help">Help</a> 
+  </div>
+
+  <h1>Cyber Security Awareness</h1>
+
+  <div class="container">
+
+    <h2>Stay Safe Online</h2>
+    <p>Protect yourself and your digital identity with the best practices in cybersecurity!</p>
+
+    <h3 id="video">Watch Cyber Security Video</h3>
+    <iframe width="700" height="400" src="https://www.youtube.com/embed/JpfEBQn2CjM?si=B2IuPwwgeuzZt4qg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+    <br><br><br><br>
+    
+    <h3 id="quiz">Test Your Knowledge - Cyber Quiz</h3>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cyber Challenge</title>
+    
+          
+       
+    </head>
+    <body>
+    
+      
+        <h1>Cyber Challenge</h1>
+        <button class="btn" id="start-btn">Start Game</button>
+    
+        <div class="level-selection" style="display: none;">
+            <button id="easy-btn" class="btn">Easy</button>
+            <button id="medium-btn" class="btn">Medium</button>
+            <button id="hard-btn" class="btn">Hard</button>
+            <button id="final-btn" class="btn">Final Challenge</button>
+        </div>
+    
+        <!-- Quiz Game -->
+        <div class="quiz-container">
+            <div class="question-container" id="question-container"></div>
+            <div class="answers" id="answers-container"></div>
+            <div class="timer" id="timer"></div>
+        </div>
+    
+        <div class="congratulations" id="congratulations-message">
+            Congratulations! You've completed the quiz!
+        </div>
+    
+        <div class="final-score" id="final-score"></div>
+        
+        <button class="play-again-btn" id="play-again-btn" style="display: none;">Play Again</button>
+    
+        <script>
+       
+            const startBtn = document.getElementById("start-btn");
+            const levelSelection = document.querySelector(".level-selection");
+            const easyBtn = document.getElementById("easy-btn");
+            const mediumBtn = document.getElementById("medium-btn");
+            const hardBtn = document.getElementById("hard-btn");
+            const finalBtn = document.getElementById("final-btn");
+            const quizContainer = document.querySelector(".quiz-container");
+            const questionContainer = document.getElementById("question-container");
+            const answersContainer = document.getElementById("answers-container");
+            const timerDisplay = document.getElementById("timer");
+            const congratulationsMessage = document.getElementById("congratulations-message");
+            const finalScore = document.getElementById("final-score");
+            const playAgainBtn = document.getElementById("play-again-btn");
+    
+            let currentLevel = "";
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let timer;
+            let timeLeft = 30; 
+            const questions = {
+                easy: [
+                    { question: "What is Phishing?", options: ["A type of malware", "A fishing technique", "A fraudulent attempt to steal sensitive data"], correct: 2 },
+                    { question: "What does the term 'malware' mean?", options: ["Software for security", "Malicious software", "A computer bug"], correct: 1 },
+                    { question: "What is a ransom?", options: ["Payment to release encrypted data", "A type of malware", "A type of phishing attack"], correct: 0 },
+                    { question: "Which of the following is an example of phishing?", options: ["A fake email asking for personal info", "A computer virus", "A firewall attack"], correct: 0 },
+                    { question: "Which company had a major ransomware attack in 2017?", options: ["Target", "WannaCry", "Sony"], correct: 1 },
+                    { question: "What is a trojan horse?", options: ["A piece of malware", "A type of virus", "A social engineering tactic"], correct: 0 },
+                    { question: "What is two-factor authentication?", options: ["A phishing technique", "An added layer of security", "A malware"], correct: 1 },
+                    { question: "What is a firewall?", options: ["Malicious software", "Security software for networks", "A phishing attack"], correct: 1 },
+                    { question: "Which is NOT a common malware?", options: ["Worm", "Virus", "Trojan", "Spam"], correct: 3 },
+                    { question: "What is social engineering?", options: ["Attacking networks", "Manipulating people into revealing sensitive information", "A type of virus"], correct: 1 },
+                ],
+                medium: [
+                    { question: "What does Ransomware do?", options: ["Steals data", "Encrypts files and demands ransom", "Sends spam emails"], correct: 1 },
+                    { question: "Which malware spreads through USB drives?", options: ["Worm", "Trojan", "Virus"], correct: 0 },
+                    { question: "What is an exploit kit?", options: ["Malware", "A set of tools to exploit vulnerabilities", "A security software"], correct: 1 },
+                    { question: "What is a DDoS attack?", options: ["Direct data theft", "Flooding a network with traffic to crash it", "Ransomware"], correct: 1 },
+                    { question: "What does a phishing email typically ask for?", options: ["Software updates", "Sensitive personal data", "Advertisements"], correct: 1 },
+                    { question: "What does encryption do?", options: ["Secures data", "Steals data", "Fakes identity"], correct: 0 },
+                    { question: "Which of the following is a type of malware?", options: ["Spyware", "Firewall", "Antivirus"], correct: 0 },
+                    { question: "Which of the following is a famous cyber attack?", options: ["Stuxnet", "Bitcoin mining", "Anti-virus software"], correct: 0 },
+                    { question: "What is a vulnerability?", options: ["A security weakness", "Malware", "A firewall"], correct: 0 },
+                    { question: "What is a botnet?", options: ["A group of infected computers", "A phishing attack", "A type of ransomware"], correct: 0 },
+                ],
+                hard: [
+                    { question: "Which of these is a famous malware?", options: ["WannaCry", "Netflix", "Google"], correct: 0 },
+                    { question: "What is spear-phishing?", options: ["Targeted phishing attack", "Social engineering", "Malware"], correct: 0 },
+                    { question: "Which is NOT a method of delivering malware?", options: ["Email", "Malicious websites", "Antivirus"], correct: 2 },
+                    { question: "What is SQL Injection?", options: ["Malware", "A database vulnerability attack", "A phishing technique"], correct: 1 },
+                    { question: "What does a ransomware attack typically do?", options: ["Encrypts files and demands money", "Steals data", "Disables computers"], correct: 0 },
+                    { question: "Which company suffered a significant data breach in 2013?", options: ["Yahoo", "Target", "Facebook"], correct: 1 },
+                    { question: "What is the goal of a cybercriminal?", options: ["To gather information", "To destroy data", "To gain financial benefit"], correct: 2 },
+                    { question: "What is APT?", options: ["Advanced Persistent Threat", "Malware", "Virus"], correct: 0 },
+                    { question: "Which is a type of phishing?", options: ["Voice phishing", "Online phishing", "Phone call phishing"], correct: 1 },
+                    { question: "What is a zero-day exploit?", options: ["A newly discovered vulnerability", "A new virus", "A security patch"], correct: 0 },
+                ]
+            };
+    
+            
+            function startQuiz(level) {
+                currentLevel = level;
+                currentQuestionIndex = 0;
+                score = 0;
+                quizContainer.style.display = "block";
+                levelSelection.style.display = "none";
+                showQuestion();
+            }
+    
+            
+            function showQuestion() {
+                const question = questions[currentLevel][currentQuestionIndex];
+                questionContainer.innerHTML = question.question;
+                answersContainer.innerHTML = "";
+                question.options.forEach((option, index) => {
+                    const answerBtn = document.createElement("button");
+                    answerBtn.textContent = option;
+                    answerBtn.onclick = () => handleAnswer(index, question.correct);
+                    answersContainer.appendChild(answerBtn);
+                });
+                startTimer();
+            }
+    
+           
+            function handleAnswer(selected, correct) {
+                if (selected === correct) {
+                    score++;
+                }
+                clearInterval(timer);
+                nextQuestion();
+            }
+    
+            
+            function nextQuestion() {
+                if (currentQuestionIndex < 9) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    endQuiz();
+                }
+            }
+    
+            
+            function endQuiz() {
+                congratulationsMessage.style.display = "block";
+                finalScore.innerHTML = `Your Score: ${score}/10`;
+                playAgainBtn.style.display = "block";
+            }
+    
+            
+            function startTimer() {
+                timeLeft = 30;
+                timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+                timer = setInterval(() => {
+                    timeLeft--;
+                    timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        nextQuestion();
+                    }
+                }, 1000);
+            }
+    
+            
+            startBtn.addEventListener("click", () => {
+                levelSelection.style.display = "block";
+                startBtn.style.display = "none";
+            });
+    
+            easyBtn.addEventListener("click", () => startQuiz("easy"));
+            mediumBtn.addEventListener("click", () => startQuiz("medium"));
+            hardBtn.addEventListener("click", () => startQuiz("hard"));
+            finalBtn.addEventListener("click", () => startQuiz("final"));
+    
+            playAgainBtn.addEventListener("click", () => {
+                location.reload();
+            });
+        </script>
+    
+    </body>
+    
+
+    <br><br><br><br>
+
+    <h3 id="puzzle">Cybersecurity Puzzle Challenge</h3>
+    <p>Arrange the blocks in correct order to secure the system!</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <style>
+            body {
+                font-family: 'Courier New', monospace;
+                text-align: center;
+                background-color: #a7a5a5;
+                color:whitesmoke;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 {
+                text-shadow: 0 0 10px #a868e4;
+            }
+            .container {
+                margin-top: 20px;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+                gap: 5px;
+                margin: auto;
+                width: 315px;
+                background: #222;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 20px #24096e;
+            }
+            .block {
+                width: 100px;
+                height: 100px;
+                background-color: #1a1a1a;
+                color: #00ffcc;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 5px;
+                border: 1px solid #653ed3;
+                transition: 0.3s;
+                box-shadow: 0px 0px 5px #00ffcc;
+            }
+            .block:hover {
+                background-color: #00ffcc;
+                color: #000;
+                transform: scale(1.1);
+            }
+            .solved {
+                background-color: #00ff00;
+                color: black;
+                box-shadow: 0px 0px 15px #00ff00;
+            }
+            #message {
+                margin-top: 20px;
+                font-size: 18px;
+                font-weight: bold;
+                text-shadow: 0px 0px 10px #00ffcc;
+            }
+        </style>
+    </head>
+    <div class="container">
+      <button id="startPuzzle" class="btn">Start Puzzle!!</button>
+      <div id="puzzleSection" style="display: none;">
+        <div class="grid" id="grid"></div>
+        <p id="message"></p>
+      </div>
+    </div>
+
+    <script>
+      const correctOrder = ["Firewall", "Encryption", "Antivirus", "Secure Login", "2FA", "Safe Browsing", "Update OS", "Backup Data", "VPN"];
+      let shuffledOrder = correctOrder.slice().sort(() => Math.random() - 0.5);
+
+      function createPuzzle() {
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
+        shuffledOrder.forEach((text, index) => {
+          let block = document.createElement("div");
+          block.className = "block";
+          block.textContent = text;
+          block.setAttribute("data-index", index);
+          block.onclick = () => swapBlocks(index);
+          grid.appendChild(block);
+        });
+      }
+
+      function swapBlocks(index) {
+        if (index > 0) {
+          [shuffledOrder[index], shuffledOrder[index - 1]] = [shuffledOrder[index - 1], shuffledOrder[index]];
+          createPuzzle();
+          checkSolution();
+        }
+      }
+
+      function checkSolution() {
+        if (JSON.stringify(shuffledOrder) === JSON.stringify(correctOrder)) {
+          document.querySelectorAll(".block").forEach(block => block.classList.add("solved"));
+          document.getElementById("message").textContent = "✅ System Secured! You solved the puzzle!";
+        }
+      }
+
+      document.getElementById("startPuzzle").onclick = () => {
+        document.getElementById("puzzleSection").style.display = "block";
+        document.getElementById("startPuzzle").style.display = "none";
+        createPuzzle();
+      };
+    </script>
+
+    <br><br><br><br>
+
+    <h3 id="simulation">Cyber Threat Simulation Game</h3>
+    <div id="start-screen">
+      <button id="ransomware-btn" class="btn">Start Ransomware Mission</button>
+      <button id="phishing-btn" class="btn">Start Phishing Mission</button>
+      <button id="malware-btn" class="btn">Start Malware Mission</button>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+      <h2 id="phase-title"></h2>
+      <p id="question-text"></p>
+      <div id="choices"></div>
+      <p id="score">Score: 0</p>
+    </div>
+
+    <div id="end-screen" style="display: none;">
+      <h2>Game Over!</h2>
+      <p id="final-score"></p>
+      <button id="play-again-btn" class="btn">Play Again</button>
+    </div>
+    <style>
+
+      .btn {
+        display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  background-color: #004e92;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #00bfff;
+  border-radius: 30px;
+  transition: 0.4s;
+      }
+  
+      /* Button Hover Effect */
+      .btn:hover {
+          background-color: #4b99bb; 
+      }
+  
+  
+      #choices {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 20px;
+      }
+  
+     
+      #choices button {
+          width: 250px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          padding: 12px;
+          border-radius: 5px;
+          background-color: #83261f; 
+          color: white;
+          border: 2px solid #ff4d4d ;
+  border-radius: 30px;
+          transition: background-color 0.3s ease;
+      }
+  
+      
+      #choices button:hover {
+          background-color: #e05957; 
+      }
+  
+      
+      #choices button.active {
+          background-color: #2196F3; 
+      }
+  </style>
+  
+    <script src="neetu.js"></script> 
+    <br><br><br><br>
+
+    <div class="tips">
+      <h2>Top Cyber Security Tips</h2>
+      <div class="tip-card">✔️ Use strong and unique passwords for every account.</div>
+      <div class="tip-card">✔️ Enable two-factor authentication wherever possible.</div>
+      <div class="tip-card">✔️ Beware of phishing emails and suspicious links.</div>
+      <div class="tip-card">✔️ Keep your software and systems updated.</div>
+      <div class="tip-card">✔️ Never share personal information over unsecured websites.</div>
+      <div class="tip-card">✔️ Use antivirus and firewall protection.</div>
+      <div class="tip-card">✔️ Regularly back up important data.</div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="helpline" id="help">
+      <h2>Need Help? Contact Cybercrime Helpline</h2>
+      <p>📞 Call: <strong>1930</strong> (India Cybercrime Helpline)</p>
+      <p>🌐 Visit: <a href="https://cybercrime.gov.in/" target="_blank">cybercrime.gov.in</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 CyberSecure | Stay Vigilant, Stay Safe!
+  </footer>
+
+</body>
+</html>
